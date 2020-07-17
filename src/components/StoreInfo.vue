@@ -29,10 +29,10 @@ export default {
 
 <style>
   .info {
-    width: 95%;
+    width: 90%;
     height: 425px;
     margin: 20px auto 0;
-    background-color: white;
+    background-color: var(--primary-color);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -49,7 +49,7 @@ export default {
   }
 
   p {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
   }
 
   p.storeOpen {

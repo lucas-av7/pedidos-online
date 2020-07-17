@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="headerContent">
-      <h2>Pedido Online</h2>
+      <h1>Pedido Online</h1>
       <div class="menuMobile">
         <div class="bar1"></div>
         <div class="bar2"></div>
@@ -48,6 +48,6 @@ export default {
   .menuMobile .bar3 {
     width: 40px;
     height: 5px;
-    background-color: var(--headers-color);
+    background-color: var(--primary-color);
   }
 </style>

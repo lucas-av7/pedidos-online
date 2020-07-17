@@ -16,10 +16,10 @@ export default {
 <style>
   :root {
     --main-color: #e63946;
-    --bg-color: #f1faee;
     --headers-color: #1d3557;
     --text-color: #457b9d;
     --backup-color: #a8dadc;
+    --primary-color: #fff;
     font-size: 62.5%;
   }
 
@@ -38,7 +38,11 @@ export default {
     font-family: 'Roboto', sans-serif;;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1 {
+    color: var(--primary-color);
+  }
+
+  h2, h3, h4, h5, h6 {
     color: var(--headers-color);
   }
 </style>
