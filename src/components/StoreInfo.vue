@@ -6,8 +6,9 @@
       storeClosed: !storeOpen.open}">
       &bull; {{ storeOpen.text }}
     </p>
+    <p>Horário: 10:30h às 15:00h</p>
     <h3 class="waitTime">Tempo de espera</h3>
-    <p>Entre 45-60min</p>
+    <p>Entre 60-90min</p>
   </section>
 </template>
 
@@ -17,7 +18,9 @@ export default {
     storeOpen() {
       let now = new Date
       let hour = now.getHours()
-      let open = hour >= 11 && hour <= 20 ? true : false
+      let minutes = now.getMinutes()
+      if(hour == 10 && minutes >= 30) hour = 10.5
+      let open = hour >= 10.5 && hour <= 15 ? true : false
       return { open, text: open ? 'Aberto!' : 'Fechado!' }
     }
   }
@@ -27,7 +30,7 @@ export default {
 <style>
   .info {
     width: 95%;
-    height: 400px;
+    height: 425px;
     margin: 20px auto 0;
     background-color: white;
     border-radius: 10px;
@@ -38,7 +41,7 @@ export default {
 
   .info img {
     width: 70%;
-    margin-top: 20px;
+    margin-top: 15px;
   }
 
   .storeName {
