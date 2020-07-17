@@ -1,15 +1,20 @@
 <template>
   <div class="home">
-    <h1>Roboto</h1>
+    <StoreInfo />
   </div>
 </template>
 
 <script>
-export default {
+import StoreInfo from '../components/StoreInfo.vue'
 
+export default {
+  components: { StoreInfo }
 }
 </script>
 
 <style>
+  .home {
+    width: 100%;
+  }
 
 </style>

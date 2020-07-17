@@ -31,7 +31,9 @@ export default {
 
   body {
     font-size: 1.6rem;
-    background-color: var(--bg-color);
+    background-image: url(./assets/bg-repeat.jpg);
+    background-repeat: repeat;
+    background-size: 100%;
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;;
   }
