@@ -17,6 +17,7 @@ export default {
 <style>
   .home {
     width: 100%;
+    margin-top: 80px;
   }
 
 </style>
