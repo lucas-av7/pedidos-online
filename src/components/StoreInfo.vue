@@ -31,7 +31,7 @@ export default {
   .info {
     width: 90%;
     height: 425px;
-    margin: 0 auto;
+    margin: 80px auto 0;
     background-color: var(--primary-color);
     border-radius: 10px;
     display: flex;

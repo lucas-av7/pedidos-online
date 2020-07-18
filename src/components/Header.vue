@@ -24,7 +24,8 @@ export default {
     height: 60px;
     background-color: var(--main-color);
     position: fixed;
-    margin-top: -80px;
+    box-shadow: 0 1px 5px black;
+    top: 0;
   }
 
   .headerContent {
