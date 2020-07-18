@@ -20,6 +20,7 @@ export default {
     --text-color: #457b9d;
     --backup-color: #a8dadc;
     --primary-color: #fff;
+    --secondary-color: #009900;
     font-size: 62.5%;
   }
 

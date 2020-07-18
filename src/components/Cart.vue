@@ -16,14 +16,18 @@ export default {
   .cart {
     width: 90%;
     height: 55px;
-    margin: 20px auto 0;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     padding: 10px;
-    background-color: var(--main-color);
+    background-color: var(--secondary-color);
     border-radius: 7px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 1.3rem;
+    box-shadow: 0 0 6px black;
   }
 
   .cart h1:nth-child(1) {
