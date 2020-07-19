@@ -64,6 +64,28 @@ export default {
               amount: 0
             }
           ]
+        },
+        {
+          id: 3,
+          name: 'Feijoadas',
+          products: [
+            {
+              id: 1,
+              name: 'Feijoada individual bora cumê', 
+              description: '750g incluindo os seguintes itens: feijoada, arroz, farofa, couve, laranja, e caldo quente apimentado.',
+              price: 25.00,
+              img: 'feijoada1.jpg',
+              amount: 0
+            },
+            {
+              id: 2,
+              name: 'Feijoada no pote bora cumê', 
+              description: '1 litro de feijoada no pote, acompanha arroz, farofa, couve, laranja, e caldo quente apimentado. serve 3 pessoas.',
+              price: 59.90,
+              img: 'feijoada2.jpg',
+              amount: 0
+            }
+          ]
         }
       ],
       order: { totalPrice: 0, totalAmount: 0, products: [] }

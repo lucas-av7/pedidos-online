@@ -11,7 +11,10 @@
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | brazilianReal }}</p>
         </div>
-        <button class="sendOrder" :disabled="!storeStatus">Enviar pedido</button>
+        <router-link :to="{ name: 'Order', params: { order } }">
+          <button class="sendOrder" :disabled="!storeStatus"
+            @click="showCart = false">Enviar pedido</button>
+        </router-link>
         <p v-if="!storeStatus">Loja fechada!</p>
         <p class="emptyCart" @click="$emit('emptyCart'), showCart = false">Esvaziar carrinho</p>
       </div>
@@ -115,7 +118,7 @@ export default {
   }
 
   .sendOrder {
-    width: 80%;
+    width: 230px;
     height: 50px;
     border-radius: 7px;
     outline: none;
