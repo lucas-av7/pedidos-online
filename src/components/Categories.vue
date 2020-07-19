@@ -1,8 +1,8 @@
 <template>
   <section class="categories">
-    <div class="headerCategory">
+    <div class="headerCategory" @click="showCategory = !showCategory">
       <h1>{{ categoryName }}</h1>
-      <div @click="showCategory = !showCategory">
+      <div>
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
@@ -55,8 +55,9 @@ export default {
     justify-content: space-between;
     padding: 10px;
     background-color: var(--main-color);
-    border-top-left-radius: 7px;
-    border-top-right-radius: 7px;
+    border-radius: 7px;
+    cursor: pointer;
+    user-select: none;
   }
 
   .dot {
