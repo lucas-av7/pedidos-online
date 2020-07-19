@@ -1,13 +1,12 @@
 <template>
-  <section class="cart">
+  <section class="cart" v-show="order.totalAmount > 0">
     <div class="headerCart" @click="showCart = !showCart">
       <h1>{{ order.totalPrice | brazilianReal }}</h1>
       <h1>Ver carrinho</h1>
       <h1><span>{{ order.totalAmount }}</span></h1>
     </div>
     <div class="cartContent" v-show="showCart">
-      <p v-if="order.totalAmount == 0">Nenhum produto no carrinho</p>
-      <div v-else class="orderToSend">
+      <div class="orderToSend">
         <div v-for="product in order.products" :key="product.name" class="productInCart">
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | brazilianReal }}</p>
