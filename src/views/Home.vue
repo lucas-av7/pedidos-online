@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <StoreInfo />
-    <Cart />
+    <Cart :order="order" />
     <Categories v-for="(category, index) in products" :key="category.id"
       :categoryName="category.name" :products="category.products"
       @reduceAmount="reduceAmount(index, $event)" 
@@ -64,7 +64,8 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      order: { totalPrice: 0, totalAmount: 0, products: [] }
     }
   },
   methods: {
@@ -75,6 +76,29 @@ export default {
     reduceAmount(category, product) {
       if(this.products[category].products[product].amount > 0) {
         this.products[category].products[product].amount--
+      }
+    }
+  },
+  watch: {
+    products: {
+      deep: true,
+      handler() {
+        let category = this.products
+        let order = { totalPrice: 0, totalAmount: 0, products: [] }
+        for(let i = 0; i < category.length; i++) {
+          for(let j = 0; j < category[i].products.length; j++) {
+            if(category[i].products[j].amount > 0) {
+              order.totalPrice += category[i].products[j].amount * category[i].products[j].price
+              order.totalAmount += category[i].products[j].amount
+              order.products.push({
+                name: category[i].products[j].name,
+                amount: category[i].products[j].amount,
+                price: category[i].products[j].price
+              })
+            }
+          }
+        }
+        return this.order = order
       }
     }
   }
