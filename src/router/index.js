@@ -16,11 +16,15 @@ Vue.use(VueRouter)
     name: 'Order',
     component: Order,
     props: true
-  }
+  },
+  
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior () {
+    return { x: 0, y: 0 };
+  }
 })
 
 export default router
