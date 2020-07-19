@@ -36,7 +36,9 @@ export default {
     background-repeat: repeat;
     background-size: 100%;
     color: var(--text-color);
-    font-family: 'Roboto', sans-serif;;
+    font-family: 'Roboto', sans-serif;
+    min-height: 100vh;
+    margin-bottom: 90px;
   }
 
   h1 {
