@@ -20,7 +20,7 @@ export default {
       let hour = now.getHours()
       let minutes = now.getMinutes()
       if(hour == 10 && minutes >= 30) hour = 10.5
-      let open = hour >= 10.5 && hour <= 15 ? true : false
+      let open = hour >= 10.5 && hour < 15 ? true : false
       this.$emit('storeStatus', open)
       return { open, text: open ? 'Aberto!' : 'Fechado!' }
     }
