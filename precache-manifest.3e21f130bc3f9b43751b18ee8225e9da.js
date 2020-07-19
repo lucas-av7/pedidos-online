@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pedidos-online/img/whatsapp.16756df0.png"
   },
   {
-    "revision": "a4e86281db814a55678e3530b7f21d8b",
+    "revision": "d446b6fd6ab4e654ead20d3aecbfba77",
     "url": "/pedidos-online/index.html"
   },
   {
@@ -52,7 +52,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pedidos-online/js/chunk-vendors.8cb34138.js"
   },
   {
-    "revision": "96be1f882960a34c084eabd170a6962b",
+    "revision": "bef914c01639a98c1de193dbc97b95f8",
     "url": "/pedidos-online/manifest.json"
   },
   {
