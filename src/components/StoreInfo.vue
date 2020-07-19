@@ -13,14 +13,19 @@
 </template>
 
 <script>
+import moment from 'moment'
 export default {
   computed: {
     storeOpen() {
-      let now = new Date
-      let hour = now.getHours()
-      let minutes = now.getMinutes()
-      if(hour == 10 && minutes >= 30) hour = 10.5
-      let open = hour >= 10.5 && hour < 15 ? true : false
+      let format = 'HH:mm:ss'
+      let timeNow = moment().format(format)
+
+      let time = moment(timeNow, format),
+      beforeTime = moment('10:30:00', format),
+      afterTime = moment('15:00:00', format);
+
+      let open = time.isBetween(beforeTime, afterTime)
+
       this.$emit('storeStatus', open)
       return { open, text: open ? 'Aberto!' : 'Fechado!' }
     }
