@@ -2,8 +2,11 @@
   <div class="home">
     <StoreInfo />
     <Cart />
-    <Categories v-for="category in products" :key="category.id"
-      :categoryName="category.name" :products="category.products" />
+    <Categories v-for="(category, index) in products" :key="category.id"
+      :categoryName="category.name" :products="category.products"
+      @reduceAmount="reduceAmount(index, $event)" 
+      @addAmount="addAmount(index, $event)" 
+      />
   </div>
 </template>
 
@@ -26,14 +29,16 @@ export default {
             name: 'Panqueca de Frango com Molho Bechamel', 
             description: 'Panqueca recheada com frango, queijo muçarela, molho bechamel, finalizada com queijo parmesão gratinado. Acompanhamento Opcional (Arroz Branco), sem custo.',
             price: 17.00,
-            img: 'panqueca1.jpg'
+            img: 'panqueca1.jpg',
+            amount: 0
           },
           {
             id: 2,
             name: 'Panqueca de Carne ao Molho Bechamel', 
             description: 'Panqueca recheada com carne de boa qualidade, queijo mussarela, molho bechamel, finalizada com queijo parmesão gratinado. Acompanhamento Opcional (Arroz Branco), sem custo.',
             price: 17.00,
-            img: 'panqueca2.jpg'
+            img: 'panqueca2.jpg',
+            amount: 0
           }
         ]
         },
@@ -46,18 +51,31 @@ export default {
               name: 'Lasanha de Frango com Molho Bechamel', 
               description: 'Lasanha de frango com molho bechamel, preparada com massa tradicional, recheada com muçarela, presunto e finalizando com o delicioso queijo parmesão gratinado.',
               price: 31.90,
-              img: 'lasanha1.jpg'
+              img: 'lasanha1.jpg',
+              amount: 0
             },
             {
               id: 2,
               name: 'Lasanha Tradicional de Carne com Molho Bechamel', 
               description: 'Lasanha Tradicional, carne moída (alcatra ou contra filé), com molho bechamel, preparada com massa tradicional, recheada com muçarela, presunto, finalizando com o delicioso parmesão gratinado.',
               price: 35.90,
-              img: 'lasanha2.jpg'
+              img: 'lasanha2.jpg',
+              amount: 0
             }
           ]
         }
       ]
+    }
+  },
+  methods: {
+    addAmount(category, product) {
+      this.products[category].products[product].amount++
+      
+    },
+    reduceAmount(category, product) {
+      if(this.products[category].products[product].amount > 0) {
+        this.products[category].products[product].amount--
+      }
     }
   }
 }

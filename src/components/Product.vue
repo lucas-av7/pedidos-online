@@ -10,7 +10,9 @@
           :class="{ descriptionShow }">{{ !descriptionShow ? '+' : '-' }} Descrição</p>
         <p v-show="descriptionShow">{{ product.description }}</p>
         <div class="amount">
-          <button>-</button> <span class="qtdProduct">0</span> <button>+</button>
+          <button @click="$emit('reduceAmount')">-</button>
+            <span class="amountProduct">{{ product.amount }}</span>
+          <button @click="$emit('addAmount')">+</button>
         </div>
       </div>
   </div>
@@ -81,12 +83,12 @@ export default {
     margin-top: 5px;
   }
 
-  .qtdProduct {
+  .amountProduct {
     margin: 0 7px;
   }
 
   .descriptionShow {
     color: var(--main-color);
-    margin: 5px 0;
+    margin: 0 0 5px;
   }
 </style>

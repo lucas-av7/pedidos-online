@@ -9,9 +9,11 @@
       </div>
     </div>
 
-    <Product v-for="product in products"
-      :key="product.id" :product="product"
-      v-show="showCategory"/>
+    <Product v-for="(product, index) in products"
+      :key="product.id" :product="product" v-show="showCategory"
+      @reduceAmount="$emit('reduceAmount', index)" 
+      @addAmount="$emit('addAmount', index)" 
+      />
 
   </section>
 </template>
