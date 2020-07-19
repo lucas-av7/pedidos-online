@@ -43,7 +43,7 @@ export default {
     width: 90%;
     max-width: 700px;
     position: fixed;
-    bottom: 20px;
+    bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     height: auto;
@@ -98,6 +98,8 @@ export default {
   .productInCart {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    width: 100%;
     margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
   }
