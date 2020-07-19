@@ -7,11 +7,13 @@
     </div>
     <div class="cartContent" v-show="showCart">
       <p v-if="order.totalAmount == 0">Nenhum produto no carrinho</p>
-      <div v-else>
+      <div v-else class="orderToSend">
         <div v-for="product in order.products" :key="product.name" class="productInCart">
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | brazilianReal }}</p>
         </div>
+        <button class="sendOrder">Enviar pedido</button>
+        <p class="emptyCart" >Esvaziar carrinho</p>
       </div>
     </div>
   </section>
@@ -22,7 +24,7 @@ export default {
   props: ['order'],
   filters: {
     brazilianReal(price) {
-      return 'R$ ' + price.toFixed(2).toString().replace('.', ',')
+      return 'R$' + price.toFixed(2).toString().replace('.', ',')
     }
   },
   data() {
@@ -41,6 +43,8 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     height: auto;
+    overflow: hidden;
+    user-select: none;
   }
 
   .headerCart {
@@ -54,6 +58,7 @@ export default {
     justify-content: space-between;
     font-size: 1.3rem;
     box-shadow: 0 0 6px black;
+    cursor: pointer;
   }
 
   .headerCart h1:nth-child(1) {
@@ -101,5 +106,30 @@ export default {
   .productInCart p:nth-child(2) {
     width: 90px;
     text-align: right;
+  }
+
+  .orderToSend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sendOrder {
+    width: 80%;
+    height: 50px;
+    border-radius: 7px;
+    outline: none;
+    border: none;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    font-size: 2.5rem;
+    box-shadow: 1px 1px 3px #555;
+    cursor: pointer;
+  }
+
+  .emptyCart {
+    margin-top: 15px;
+    color: var(--main-color);
+    cursor: pointer;
   }
 </style>
