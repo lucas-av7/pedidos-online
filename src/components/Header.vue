@@ -26,6 +26,7 @@ export default {
     position: fixed;
     box-shadow: 0 1px 5px black;
     top: 0;
+    user-select: none;
   }
 
   .headerContent {
