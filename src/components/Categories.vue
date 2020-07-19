@@ -2,14 +2,16 @@
   <section class="categories">
     <div class="headerCategory">
       <h1>{{ categoryName }}</h1>
-      <div>
+      <div @click="showCategory = !showCategory">
         <span class="dot"></span>
         <span class="dot"></span>
         <span class="dot"></span>
       </div>
     </div>
 
-    <Product v-for="product in products" :key="product.id" :product="product" />
+      <Product v-for="product in products"
+        :key="product.id" :product="product"
+        v-show="showCategory"/>
 
   </section>
 </template>
@@ -20,6 +22,11 @@ import Product from './Product.vue'
 export default {
   components: { Product },
   props: ['categoryName', 'products', 'cart'],
+  data() {
+    return {
+      showCategory: true
+    }
+  }
 }
 </script>
 
