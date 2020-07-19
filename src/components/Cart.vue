@@ -11,7 +11,8 @@
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | brazilianReal }}</p>
         </div>
-        <button class="sendOrder">Enviar pedido</button>
+        <button class="sendOrder" :disabled="!storeStatus">Enviar pedido</button>
+        <p v-if="!storeStatus">Loja fechada!</p>
         <p class="emptyCart" >Esvaziar carrinho</p>
       </div>
     </div>
@@ -20,7 +21,7 @@
 
 <script>
 export default {
-  props: ['order'],
+  props: ['order', 'storeStatus'],
   filters: {
     brazilianReal(price) {
       return 'R$' + price.toFixed(2).toString().replace('.', ',')
@@ -124,10 +125,16 @@ export default {
     font-size: 2.5rem;
     box-shadow: 1px 1px 3px #555;
     cursor: pointer;
+    margin-bottom: 10px;
+  }
+
+  .sendOrder:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
 
   .emptyCart {
-    margin-top: 15px;
+    margin-top: 10px;
     color: var(--main-color);
     cursor: pointer;
   }

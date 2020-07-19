@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <StoreInfo />
-    <Cart :order="order" />
+    <StoreInfo @storeStatus="storeStatus = $event" />
+    <Cart :order="order" :storeStatus="storeStatus" />
     <Categories v-for="(category, index) in products" :key="category.id"
       :categoryName="category.name" :products="category.products"
       @reduceAmount="reduceAmount(index, $event)" 
@@ -19,6 +19,7 @@ export default {
   components: { StoreInfo, Cart, Categories },
   data() {
     return {
+      storeStatus: false,
       products: [
         {
         id: 1, 
