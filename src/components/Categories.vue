@@ -8,15 +8,18 @@
         <span class="dot"></span>
       </div>
     </div>
-    <div v-for="product in products" :key="product.id" class="products">
-      {{  product.name }}
-    </div>
+
+    <Product v-for="product in products" :key="product.id" :product="product" />
+
   </section>
 </template>
 
 <script>
+import Product from './Product.vue'
+
 export default {
-  props: ['categoryName', 'products']
+  components: { Product },
+  props: ['categoryName', 'products', 'cart'],
 }
 </script>
 
@@ -50,10 +53,5 @@ export default {
     border-radius: 50%;
     display: inline-block;
     margin-left: 3px;
-  }
-
-  .products {
-    width: 100%;
-    padding: 20px;
   }
 </style>
