@@ -83,10 +83,10 @@ export default {
       this.order = { totalPrice: 0, totalAmount: 0, products: [] }
       let category = this.products
       for(let i = 0; i < category.length; i++) {
-          for(let j = 0; j < category[i].products.length; j++) {
-            category[i].products[j].amount = 0
-          }
+        for(let j = 0; j < category[i].products.length; j++) {
+          category[i].products[j].amount = 0
         }
+      }
     }
   },
   watch: {
