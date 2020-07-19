@@ -31,6 +31,7 @@ export default {
 <style>
   .info {
     width: 90%;
+    max-width: 700px;
     height: 415px;
     margin: 80px auto 0;
     background-color: var(--primary-color);
@@ -63,5 +64,13 @@ export default {
   
   .waitTime {
     margin-top: 10px;
+  }
+
+  @media screen and (min-width: 400px) {
+
+    .info img {
+      width: 230px;
+      margin-top: 15px;
+    }
   }
 </style>

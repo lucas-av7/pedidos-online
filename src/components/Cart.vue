@@ -41,6 +41,7 @@ export default {
 <style>
   .cart {
     width: 90%;
+    max-width: 700px;
     position: fixed;
     bottom: 20px;
     left: 50%;

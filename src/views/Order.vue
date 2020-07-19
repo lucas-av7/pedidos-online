@@ -74,9 +74,10 @@
 
       <div class="deliveryDetails">
 
-        <h3>Observações do pedido:</h3>
-        <p>{{ deliveryData.orderDetails }}</p>
-
+        <template v-if="deliveryData.orderDetails != ''">
+          <h3>Observações do pedido:</h3>
+          <p>{{ deliveryData.orderDetails }}</p>
+        </template>
         <h3>Enviar para:</h3>
         <p>Nome: {{ deliveryData.name }}</p>
         <p>Telefone: {{ deliveryData.phone }}</p>
@@ -124,7 +125,7 @@ export default {
         homeNumber: '',
         district: '',
         complement: '',
-        orderDetails: `Nenhuma observação`,
+        orderDetails: '',
         paymentMethod: 'Dinheiro',
         change: ''
       }
@@ -178,6 +179,7 @@ let total = `\n
 <style>
   .orderBox {
     width: 90%;
+    max-width: 700px;
     height: auto;
     margin: 80px auto 0;
     display: flex;
@@ -187,6 +189,7 @@ let total = `\n
 
   .orderDetails {
     display: flex;
+    width: 100%;
     flex-direction: column;
     align-items: center;
     padding: 10px;
@@ -255,8 +258,8 @@ let total = `\n
   }
 
   .deliveryDetails {
-    width: 300px;
-    word-wrap: break-word;
+    width: 90%;
+    max-width: 500px;
     margin-bottom: 20px;
   }
 

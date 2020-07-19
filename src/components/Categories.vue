@@ -39,6 +39,7 @@ export default {
 <style>
   .categories {
     width: 90%;
+    max-width: 700px;
     margin: 20px auto 0;
     border-radius: 7px;
     background-color: var(--primary-color);
