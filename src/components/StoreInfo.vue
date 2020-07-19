@@ -30,7 +30,7 @@ export default {
 <style>
   .info {
     width: 90%;
-    height: 425px;
+    height: 415px;
     margin: 80px auto 0;
     background-color: var(--primary-color);
     border-radius: 10px;

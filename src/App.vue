@@ -37,7 +37,6 @@ export default {
     background-size: 100%;
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;
-    min-height: 100vh;
     margin-bottom: 90px;
   }
 

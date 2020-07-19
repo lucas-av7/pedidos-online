@@ -9,9 +9,9 @@
       </div>
     </div>
 
-      <Product v-for="product in products"
-        :key="product.id" :product="product"
-        v-show="showCategory"/>
+    <Product v-for="product in products"
+      :key="product.id" :product="product"
+      v-show="showCategory"/>
 
   </section>
 </template>
