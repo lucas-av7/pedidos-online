@@ -9,12 +9,16 @@
       </div>
     </div>
 
-    <Product v-for="(product, index) in products"
-      :key="product.id" :product="product" v-show="showCategory"
-      @reduceAmount="$emit('reduceAmount', index)" 
-      @addAmount="$emit('addAmount', index)" 
-      />
-
+    <transition name="fadeHeight">
+      <div class="productsContainer" v-show="showCategory">
+        <Product v-for="(product, index) in products"
+        :key="product.id" :product="product"
+        @reduceAmount="$emit('reduceAmount', index)" 
+        @addAmount="$emit('addAmount', index)" 
+        />
+      </div>
+    </transition>
+    
   </section>
 </template>
 
@@ -62,5 +66,21 @@ export default {
     border-radius: 50%;
     display: inline-block;
     margin-left: 3px;
+  }
+
+  .productsContainer {
+    overflow: hidden;
+    height: auto;
+  }
+
+  .fadeHeight-enter-active,
+  .fadeHeight-leave-active {
+    transition: all 0.5s;
+    max-height: 100vh;
+  }
+  .fadeHeight-enter,
+  .fadeHeight-leave-to
+  {
+    max-height: 0;
   }
 </style>

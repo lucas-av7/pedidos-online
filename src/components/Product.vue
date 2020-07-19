@@ -6,9 +6,11 @@
       <div class="productInfo">
         <h3>{{ product.name }}</h3>
         <p class="productPrice">{{ product.price | brazilianReal }}</p>
-        <p @click="descriptionShow = !descriptionShow"
+        <p class="descreptionButton" @click="descriptionShow = !descriptionShow"
           :class="{ descriptionShow }">{{ !descriptionShow ? '+' : '-' }} Descrição</p>
-        <p v-show="descriptionShow">{{ product.description }}</p>
+        <transition name="fade">
+          <p v-show="descriptionShow">{{ product.description }}</p>
+        </transition>
         <div class="amount">
           <button @click="$emit('reduceAmount')">-</button>
             <span class="amountProduct">{{ product.amount }}</span>
@@ -39,11 +41,11 @@ export default {
     width: 100%;
     min-height: 160px;
     max-height: auto;
-    padding: 0 10px;
-    margin: 10px 0;
+    padding: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    border-bottom: 2px solid #ccc;
   }
 
   .productImg {
@@ -90,5 +92,21 @@ export default {
   .descriptionShow {
     color: var(--main-color);
     margin: 0 0 5px;
+  }
+
+  .descreptionButton {
+    cursor: pointer;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    transition: all 0.3s;
+    opacity: 1;
+  }
+  .fade-enter,
+  .fade-leave-to
+  {
+    font-size: 0;
+    opacity: 0;
   }
 </style>
