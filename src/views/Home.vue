@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <StoreInfo @storeStatus="storeStatus = $event" />
-    <Cart :order="order" :storeStatus="storeStatus" />
+    <Cart :order="order" :storeStatus="storeStatus" @emptyCart="emptyCart"/>
     <Categories v-for="(category, index) in products" :key="category.id"
       :categoryName="category.name" :products="category.products"
       @reduceAmount="reduceAmount(index, $event)" 
@@ -78,6 +78,15 @@ export default {
       if(this.products[category].products[product].amount > 0) {
         this.products[category].products[product].amount--
       }
+    },
+    emptyCart() {
+      this.order = { totalPrice: 0, totalAmount: 0, products: [] }
+      let category = this.products
+      for(let i = 0; i < category.length; i++) {
+          for(let j = 0; j < category[i].products.length; j++) {
+            category[i].products[j].amount = 0
+          }
+        }
     }
   },
   watch: {

@@ -13,7 +13,7 @@
         </div>
         <button class="sendOrder" :disabled="!storeStatus">Enviar pedido</button>
         <p v-if="!storeStatus">Loja fechada!</p>
-        <p class="emptyCart" >Esvaziar carrinho</p>
+        <p class="emptyCart" @click="$emit('emptyCart'), showCart = false">Esvaziar carrinho</p>
       </div>
     </div>
   </section>
