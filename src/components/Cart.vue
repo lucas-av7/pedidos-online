@@ -49,6 +49,7 @@ export default {
     height: auto;
     overflow: hidden;
     user-select: none;
+    z-index: 1;
   }
 
   .headerCart {
