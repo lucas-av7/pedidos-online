@@ -91,11 +91,10 @@
       <p>Forma de pagamento: {{ deliveryData.paymentMethod }}</p>
       <p v-if="deliveryData.paymentMethod == 'Dinheiro'">Troco para: {{ 'R$ ' + deliveryData.change }}</p>
       
-      <a class="whatsapp-send" target="_blank" :href="'https://api.whatsapp.com/send?phone=' + phoneNumber + '&text=' + textOrder">
-      <button :disabled="!enableSend" class="sendOrder whatsapp">
+      <button :disabled="!enableSend" class="sendOrder whatsapp"
+        @click="sendOrder">
         <img src="../assets/whatsapp.png" alt="Whatsapp">Enviar pedido
       </button>
-      </a>
       <p v-show="!enableSend"><span class="required">*</span> Campos obrigatórios em branco</p>
     </div>
     <div v-else>
@@ -130,6 +129,11 @@ export default {
         change: ''
       },
       phoneNumber: process.env.VUE_APP_PHONENUMBER
+    }
+  },
+  methods: {
+    sendOrder() {
+      window.location.href = 'https://api.whatsapp.com/send?phone=' + this.phoneNumber + '&text=' + this.textOrder
     }
   },
   watch: {
@@ -276,8 +280,7 @@ let total = `\n
     margin-right: 10px;
   }
 
-  .router-link-active,
-  .whatsapp-send {
+  .router-link-active {
     text-decoration: none;
   }
 
