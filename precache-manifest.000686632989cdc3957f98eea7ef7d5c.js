@@ -40,7 +40,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pedidos-online/img/whatsapp.16756df0.png"
   },
   {
-    "revision": "d446b6fd6ab4e654ead20d3aecbfba77",
+    "revision": "10f1784f202ae5e99e4cd02ac93ca68b",
     "url": "/pedidos-online/index.html"
   },
   {
