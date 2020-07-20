@@ -11,11 +11,10 @@
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | brazilianReal }}</p>
         </div>
-        <router-link :to="{ name: 'Order', params: { order } }">
-          <button class="sendOrder" :disabled="!storeStatus"
-            @click="showCart = false">Solicitar pedido</button>
+        <router-link v-if="storeStatus" :to="{ name: 'Order', params: { order } }">
+          <button class="sendOrder" @click="showCart = false">Solicitar pedido</button>
         </router-link>
-        <p v-if="!storeStatus">Loja fechada!</p>
+        <p v-else>Loja fechada!</p>
         <p class="emptyCart" @click="$emit('emptyCart'), showCart = false">Esvaziar carrinho</p>
       </div>
     </div>
