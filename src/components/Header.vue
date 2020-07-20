@@ -63,6 +63,7 @@ export default {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
+    cursor: pointer;
   }
 
   .menuMobile .bar1,
