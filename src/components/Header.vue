@@ -1,20 +1,37 @@
 <template>
-  <header>
-    <div class="headerContent">
-      <h1>Pedido Online</h1>
-      <div class="menuMobile">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
+  <div class="menuContent">
+    <header>
+      <div class="headerContent">
+        <h1>Pedido Online</h1>
+        <div class="menuMobile" @click="sidebar = true, overflow('hidden')">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+        </div>
       </div>
-    </div>
-    
-  </header>
+    </header>
+    <transition name="showSidebar">
+      <SideBar v-show="sidebar" @hideSidebar="sidebar = false, overflow('initial')"/>
+    </transition>
+  </div>
+  
 </template>
 
 <script>
-export default {
+import SideBar from './SideBar.vue'
 
+export default {
+  components: { SideBar },
+  data() {
+    return {
+      sidebar: false
+    }
+  },
+  methods: {
+    overflow(status) {
+      document.body.style.overflowY = status
+    }
+  }
 }
 </script>
 
@@ -27,6 +44,7 @@ export default {
     box-shadow: 0 1px 5px black;
     top: 0;
     user-select: none;
+    z-index: 2;
   }
 
   .headerContent {
@@ -53,5 +71,18 @@ export default {
     width: 40px;
     height: 5px;
     background-color: var(--primary-color);
+  }
+
+  .showSidebar-enter-active,
+  .showSidebar-leave-active {
+    transition: all 0.3s;
+    right: 0;
+    opacity: 1;
+  }
+  .showSidebar-enter,
+  .showSidebar-leave-to
+  {
+    right: -100%;
+    opacity: 0;
   }
 </style>
