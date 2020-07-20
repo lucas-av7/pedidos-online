@@ -23,7 +23,7 @@
         <input type="text" name="street" v-model="deliveryData.street">
         <span class="required">*</span>
         <label for="homeNumber">Nº:</label>
-        <input type="number" name="homeNumber" v-model="deliveryData.homeNumber">
+        <input type="text" name="homeNumber" v-model="deliveryData.homeNumber">
       </div>
 
       <div class="addressForm">
@@ -295,6 +295,18 @@ let total = `\n
   .required {
     color: red;
     margin-right: 3px;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type=number] {
+    -moz-appearance: textfield;
   }
 
 </style>
