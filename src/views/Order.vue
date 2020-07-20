@@ -240,6 +240,7 @@ let total = `\n
   .addressForm input,
   .addressForm textarea {
     width: 100%;
+    min-width: 60px;
     padding: 5px;
     margin: 0 10px;
     border: 1px solid #999;
