@@ -36,7 +36,7 @@ export default {
   }
 
   .exitArea {
-    width: 40%;
+    width: 100%;
     height: 100vh;
     background-color: #000000AA;
     position: absolute;
@@ -46,6 +46,7 @@ export default {
 
   aside {
     width: 60%;
+    max-width: 500px;
     height: 100vh;
     background-color: white;
     position: absolute;
