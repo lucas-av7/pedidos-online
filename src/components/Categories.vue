@@ -3,9 +3,8 @@
     <div class="headerCategory" @click="showCategory = !showCategory">
       <h1>{{ categoryName }}</h1>
       <div>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+        <span class="arrow" :class="{hide: showCategory}"></span>
+        <span class="arrow" :class="{hide: showCategory}"></span>
       </div>
     </div>
 
@@ -61,13 +60,33 @@ export default {
     user-select: none;
   }
 
-  .dot {
-    height: 10px;
-    width: 10px;
+  .arrow {
+    height: 5px;
+    width: 15px;
     background-color: var(--primary-color);
-    border-radius: 50%;
     display: inline-block;
-    margin-left: 3px;
+    transition: all 0.5s;
+    margin-bottom: 5px;
+  }
+
+  .arrow:nth-child(1) {
+    transform: rotate(45deg) translateX(5px);
+  }
+
+  .arrow:nth-child(2) {
+    transform: rotate(-45deg) translateX(-5px);
+  }
+
+  .arrow.hide {
+    margin-bottom: 0;
+  }
+
+  .arrow.hide:nth-child(1) {
+    transform: rotate(-45deg) translateX(5px);
+  }
+
+  .arrow.hide:nth-child(2) {
+    transform: rotate(45deg) translateX(-5px);
   }
 
   .productsContainer {
