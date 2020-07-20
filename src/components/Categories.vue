@@ -65,7 +65,7 @@ export default {
     width: 15px;
     background-color: var(--primary-color);
     display: inline-block;
-    transition: all 0.5s;
+    transition: all 0.3s linear;
     margin-bottom: 5px;
   }
 
@@ -82,11 +82,11 @@ export default {
   }
 
   .arrow.hide:nth-child(1) {
-    transform: rotate(-45deg) translateX(5px);
+    transform: rotate(-225deg) translateX(-5px);
   }
 
   .arrow.hide:nth-child(2) {
-    transform: rotate(45deg) translateX(-5px);
+    transform: rotate(225deg) translateX(5px);
   }
 
   .productsContainer {
