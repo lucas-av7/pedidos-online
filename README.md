@@ -1,24 +1,34 @@
-# pedidos-online
+# Pedidos Online - PWA
+Escolha os pratos de comida que você deseja e envie o espelho do pedido para o whatsapp da empresa. 
 
-## Project setup
-```
-npm install
-```
+**Veja online** [Github Pages](https://lucas-av7.github.io/pedidos-online/)
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Framework e bibliotecas usadas
+- **Vue.js**
+- Vue-router
+- Moment.js
+- V-money e Vue-the-mask
+- Vue-share-buttons
+- Vue-PWA
 
-### Compiles and minifies for production
+## Como iniciar o projeto
+Primeiro adicione o número do whatsapp para onde será enviado o espelho do pedido no arquivo .env
 ```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
+# Número do whatsapp ex: 5511988887777 (prefixo 55 + DDD + número)
+VUE_APP_PHONENUMBER=
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+*É preciso ter instalado o NodeJS na sua máquina para continuar.*
+Faça o download das dependências e rode o projeto executando os códigos abaixo a partir da pasta raíz.
+```
+$ npm install
+$ npm run serve
+```
+
+**A partir deste momento, a aplicação estará disponível para acesso.** *(verifique o link de acesso no terminal)*
+
+## Como compilar o projeto para produção
+```
+$ npm run build
+```
+**Os arquivos para upload no servidor estarão disponíveis na pasta criada */dist*.**
