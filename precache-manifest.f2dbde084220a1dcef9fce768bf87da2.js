@@ -1,7 +1,11 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "abce0b15244b86d4632e",
-    "url": "/pedidos-online/css/app.9f1bfcb2.css"
+    "revision": "ce2ee0d4e723fc94cbb1",
+    "url": "/pedidos-online/css/app.e61624ee.css"
+  },
+  {
+    "revision": "d19bda7e2f5fc01f7009",
+    "url": "/pedidos-online/css/chunk-vendors.882faf44.css"
   },
   {
     "revision": "9412536ea1058fe60a6433ca4a781fd0",
@@ -40,23 +44,23 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pedidos-online/img/whatsapp.16756df0.png"
   },
   {
-    "revision": "10f1784f202ae5e99e4cd02ac93ca68b",
+    "revision": "846afcf447805dac87ab665954f68c6e",
     "url": "/pedidos-online/index.html"
   },
   {
-    "revision": "abce0b15244b86d4632e",
-    "url": "/pedidos-online/js/app.e56278a1.js"
+    "revision": "ce2ee0d4e723fc94cbb1",
+    "url": "/pedidos-online/js/app.6179fc92.js"
   },
   {
-    "revision": "7e2eef0c73020211c5c2",
-    "url": "/pedidos-online/js/chunk-vendors.8cb34138.js"
+    "revision": "d19bda7e2f5fc01f7009",
+    "url": "/pedidos-online/js/chunk-vendors.7c207b7e.js"
   },
   {
     "revision": "bef914c01639a98c1de193dbc97b95f8",
     "url": "/pedidos-online/manifest.json"
   },
   {
-    "revision": "735ab4f94fbcd57074377afca324c813",
+    "revision": "b6216d61c03e6ce0c9aea6ca7808f7ca",
     "url": "/pedidos-online/robots.txt"
   }
 ]);
