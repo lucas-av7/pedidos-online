@@ -2,13 +2,14 @@
   <section class="info">
     <img src="../assets/logo.png" alt="Pedidos Online">
     <h2 class="storeName">Bora cumê?</h2>
-    <p :class="{storeOpen: storeOpen.open,
-      storeClosed: !storeOpen.open}">
+    <p :class="{greenColor: storeOpen.open,
+      redColor: !storeOpen.open}">
       &bull; {{ storeOpen.text }}
     </p>
     <p>Horário: 10:30h às 15:00h</p>
     <h3 class="waitTime">Tempo de espera</h3>
     <p>Entre 60-90min</p>
+    <p class="greenColor freeShipping">🛵 Entrega grátis! 🛵</p>
   </section>
 </template>
 
@@ -37,7 +38,7 @@ export default {
   .info {
     width: 90%;
     max-width: 700px;
-    height: 400px;
+    padding: 15px;
     margin: 80px auto 0;
     background-color: var(--primary-color);
     border-radius: 10px;
@@ -48,7 +49,6 @@ export default {
 
   .info img {
     width: 70%;
-    margin-top: 15px;
   }
 
   .storeName {
@@ -59,12 +59,17 @@ export default {
     font-size: 1.8rem;
   }
 
-  p.storeOpen {
+  p.greenColor {
     color: green;
   }
 
-  p.storeClosed {
+  p.redColor {
     color: red;
+  }
+
+  .freeShipping {
+    margin-top: 5px;
+    text-transform: uppercase;
   }
   
   .waitTime {
@@ -75,7 +80,6 @@ export default {
 
     .info img {
       width: 230px;
-      margin-top: 15px;
     }
   }
 </style>

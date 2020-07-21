@@ -11,6 +11,13 @@
         <p>Manaus - AM</p>
         <p><img class="wppSidebar" src="../assets/whatsapp.png" alt="Whatsapp"> (92) 98188-7337</p>
       </div>
+
+      <div class="shareButtons">
+        <h3>Compartilhe:</h3>
+        <FacebookButton />
+        <WhatsApp shareUrl="Lasanha, Panqueca, Feijoada... Bateu aquela fome? Peça sua comida agora mesmo: https://www.borecume.com.br/" />
+      </div>
+
       <div class="copyright">
         <p>Desenvolvido por:</p>
         <a target="_blank" href="https://lucas-av7.github.io/" title="Ver portfólio">Lucas-AV7</a>
@@ -20,8 +27,11 @@
 </template>
 
 <script>
-export default {
+import FacebookButton from 'vue-share-buttons/src/components/FacebookButton.vue'
+import WhatsApp from 'vue-share-buttons/src/components/WhatsAppButton.vue'
 
+export default {
+  components: { FacebookButton, WhatsApp }
 }
 </script>
 
@@ -103,4 +113,12 @@ export default {
   .copyright a {
     color: var(--main-color);
   }
+
+  .shareButtons {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    align-items: center;
+  }
+
 </style>
