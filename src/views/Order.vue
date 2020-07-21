@@ -14,7 +14,9 @@
       <div class="addressForm">
         <span class="required">*</span>
         <label for="phone">Telefone:</label>
-        <input type="number" name="phone" v-model="deliveryData.phone">
+        <the-mask :mask="['(##) ####-####', '(##) #####-####']"
+          v-model="deliveryData.phone" :masked="true" type="tel" />
+        <!-- <input type="number" name="phone" v-model="deliveryData.phone"> -->
       </div>
 
       <div class="addressForm">
@@ -47,7 +49,7 @@
 
       <div v-if="deliveryData.paymentMethod == 'Dinheiro'" class="addressForm change">
         <label for="change">Troco para:</label>
-        <input type="number" name="change" v-model="deliveryData.change" >
+        <Money v-model="deliveryData.change" v-bind="money" t></money>
       </div>
 
     </div>
@@ -83,19 +85,24 @@
         <p>Telefone: {{ deliveryData.phone }}</p>
         <p>Rua: {{ deliveryData.street }} {{ deliveryData.homeNumber }}</p>
         <p>Bairro: {{ deliveryData.district }}</p>
-        <p>Complemento: {{ deliveryData.complement }}</p>
+        <p v-show="deliveryData.complement">Complemento: {{ deliveryData.complement }}</p>
       </div>
 
       <h3><span>Quantidade de itens: {{ order.totalAmount }}</span></h3>
       <h3>Total: {{ order.totalPrice | brazilianReal }}</h3>
       <p>Forma de pagamento: {{ deliveryData.paymentMethod }}</p>
-      <p v-if="deliveryData.paymentMethod == 'Dinheiro'">Troco para: {{ 'R$ ' + deliveryData.change }}</p>
+      <p v-if="deliveryData.paymentMethod == 'Dinheiro'">Troco para: {{ deliveryData.change }}</p>
       
       <button :disabled="!enableSend" class="sendOrder whatsapp"
         @click="sendOrder">
         <img src="../assets/whatsapp.png" alt="Whatsapp">Enviar pedido
       </button>
-      <p v-show="!enableSend"><span class="required">*</span> Campos obrigatórios em branco</p>
+      <div v-show="!enableSend">
+        <p><span class="required">*</span> Campos obrigatórios com erro</p>
+        <ul v-for="(fields, index) in emptyFields" :key="index">
+          <li>{{ fields }}</li>
+        </ul>
+      </div>
     </div>
     <div v-else>
       <p>Nenhum item no carrinho</p>
@@ -108,7 +115,11 @@
 </template>
 
 <script>
+import { TheMask } from 'vue-the-mask'
+import { Money } from 'v-money'
+
 export default {
+  components: { TheMask, Money },
   props: ['order'],
   filters: {
     brazilianReal(price) {
@@ -128,7 +139,15 @@ export default {
         paymentMethod: 'Dinheiro',
         change: ''
       },
-      phoneNumber: process.env.VUE_APP_PHONENUMBER
+      phoneNumber: process.env.VUE_APP_PHONENUMBER,
+      money: {
+        decimal: ',',
+        thousands: '.',
+        prefix: 'R$ ',
+        precision: 2,
+        masked: true
+      },
+      emptyFields: []
     }
   },
   methods: {
@@ -141,6 +160,12 @@ export default {
       deep: true,
       handler() {
         if(this.deliveryData.paymentMethod == 'Cartão') this.deliveryData.change = ''
+        this.emptyFields = []
+        if(this.deliveryData.name == '') this.emptyFields.push('Nome não pode estar em branco')
+        if(this.deliveryData.phone.length < 14) this.emptyFields.push('Telefone deve ter 8 ou 9 dígitos')
+        if(this.deliveryData.street == '') this.emptyFields.push('Rua não pode estar em branco')
+        if(this.deliveryData.homeNumber == '') this.emptyFields.push('Nº da casa não pode estar em branco')
+        if(this.deliveryData.district == '') this.emptyFields.push('Bairro não pode estar em branco')
       }
     }
   },
@@ -171,7 +196,7 @@ let total = `\n
     },
     enableSend() {
       let textInput = this.deliveryData
-      if(!textInput.name || !textInput.phone || !textInput.street || !textInput.homeNumber || !textInput.district) {
+      if(!textInput.name || textInput.phone.length < 14 || !textInput.street || !textInput.homeNumber || !textInput.district) {
         return false
       } else {
         return true
