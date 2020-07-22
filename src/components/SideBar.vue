@@ -121,4 +121,46 @@ export default {
     align-items: center;
   }
 
+  @media screen and (max-height: 590px) {
+    .exitArea {
+      display: none;
+    }
+
+    aside {
+      width: 100%;
+      max-width: 100%;
+      height: 100vh;
+      background-color: white;
+      flex-direction: row;
+      justify-content: space-evenly;
+    }
+  
+
+    .logoSidebar {
+      width: 40%;
+      height: auto;
+      max-width: 120px;
+      margin-top: 0;
+    }
+    
+    .copyright {
+      margin-bottom: 0;
+      flex-grow: 0;
+    }
+
+    .buttonHideSidebar {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+
+    .storeSidebarInfo {
+      margin-top: 0;
+    }
+
+    .shareButtons {
+      margin-top: 0;
+    }
+
+  }
 </style>
