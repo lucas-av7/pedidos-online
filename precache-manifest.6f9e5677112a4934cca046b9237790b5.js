@@ -1,7 +1,7 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "d5883166fc1b939f5701",
-    "url": "/pedidos-online/css/app.07f5a4aa.css"
+    "revision": "1037631314f7709ff65d",
+    "url": "/pedidos-online/css/app.f49ff911.css"
   },
   {
     "revision": "d19bda7e2f5fc01f7009",
@@ -44,12 +44,12 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/pedidos-online/img/whatsapp.16756df0.png"
   },
   {
-    "revision": "ef3d6930333d940eb16c07f971eecbc9",
+    "revision": "d64667fb916fc9d9a1eb12307f8825b9",
     "url": "/pedidos-online/index.html"
   },
   {
-    "revision": "d5883166fc1b939f5701",
-    "url": "/pedidos-online/js/app.3d76a0ef.js"
+    "revision": "1037631314f7709ff65d",
+    "url": "/pedidos-online/js/app.4fc83efe.js"
   },
   {
     "revision": "d19bda7e2f5fc01f7009",

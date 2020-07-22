@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/pedidos-online/precache-manifest.5728cf6a2a2b339861cddef07a11cee4.js"
+  "/pedidos-online/precache-manifest.6f9e5677112a4934cca046b9237790b5.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "pedidos-online"});
