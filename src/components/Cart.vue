@@ -1,7 +1,7 @@
 <template>
   <section class="cart" v-show="order.totalAmount > 0">
     <div class="headerCart" @click="showCart = !showCart">
-      <h1>{{ order.totalPrice | brazilianReal }}</h1>
+      <h1>{{ order.totalPrice | realMask }}</h1>
       <h1>Ver carrinho</h1>
       <h1><span>{{ order.totalAmount }}</span></h1>
     </div>
@@ -9,7 +9,7 @@
       <div class="orderToSend">
         <div v-for="product in order.products" :key="product.name" class="productInCart">
           <p>{{ product.amount }}x {{ product.name }}</p>
-          <p>{{ product.amount * product.price | brazilianReal }}</p>
+          <p>{{ product.amount * product.price | realMask }}</p>
         </div>
         <router-link v-if="storeStatus" :to="{ name: 'Order', params: { order } }">
           <button class="sendOrder" @click="showCart = false">Solicitar pedido</button>
@@ -22,13 +22,11 @@
 </template>
 
 <script>
+import realMask from '../mixins/realMask'
+
 export default {
   props: ['order', 'storeStatus'],
-  filters: {
-    brazilianReal(price) {
-      return 'R$' + price.toFixed(2).toString().replace('.', ',')
-    }
-  },
+  mixins: [realMask],
   data() {
     return {
       showCart: false

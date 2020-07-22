@@ -5,7 +5,7 @@
       </div>
       <div class="productInfo">
         <h3>{{ product.name }}</h3>
-        <p class="productPrice">{{ product.price | brazilianReal }}</p>
+        <p class="productPrice">{{ product.price | realMask }}</p>
         <p class="descreptionButton" @click="descriptionShow = !descriptionShow"
           :class="{ descriptionShow }">{{ !descriptionShow ? '+' : '-' }} Descrição</p>
         <transition name="fade">
@@ -21,13 +21,11 @@
 </template>
 
 <script>
+import realMask from '../mixins/realMask'
+
 export default {
   props: ['product'],
-  filters: {
-    brazilianReal(price) {
-      return 'R$ ' + price.toFixed(2).toString().replace('.', ',')
-    }
-  },
+  mixins: [realMask],
   data() {
     return {
       descriptionShow: false

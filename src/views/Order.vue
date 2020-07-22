@@ -71,7 +71,7 @@
 
       <div v-for="product in order.products" :key="product.name" class="productInCart">
         <p>{{ product.amount }}x {{ product.name }}</p>
-        <p>{{ product.amount * product.price | brazilianReal }}</p>
+        <p>{{ product.amount * product.price | realMask }}</p>
       </div>
 
       <div class="deliveryDetails">
@@ -89,7 +89,7 @@
       </div>
 
       <h3><span>Quantidade de itens: {{ order.totalAmount }}</span></h3>
-      <h3>Total: {{ order.totalPrice | brazilianReal }}</h3>
+      <h3>Total: {{ order.totalPrice | realMask }}</h3>
       <p>Forma de pagamento: {{ deliveryData.paymentMethod }}</p>
       <p v-if="deliveryData.paymentMethod == 'Dinheiro'">Troco para: {{ deliveryData.change }}</p>
       
@@ -117,15 +117,12 @@
 <script>
 import { TheMask } from 'vue-the-mask'
 import { Money } from 'v-money'
+import realMask from '../mixins/realMask'
 
 export default {
   components: { TheMask, Money },
   props: ['order'],
-  filters: {
-    brazilianReal(price) {
-      return 'R$' + price.toFixed(2).toString().replace('.', ',')
-    }
-  },
+  mixins: [realMask],
   data() {
     return {
       deliveryData: {
