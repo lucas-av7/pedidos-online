@@ -59,7 +59,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     font-size: 1.3rem;
-    box-shadow: 0 0 6px black;
     cursor: pointer;
   }
 
@@ -69,7 +68,7 @@ export default {
   }
 
   .headerCart h1:nth-child(2) {
-    flex: 2;
+    flex: 1;
     text-align: center;
   }
 
