@@ -6,8 +6,10 @@
       redColor: !storeOpen.open}">
       &bull; {{ storeOpen.text }}
     </p>
-    <p>Horário: 10:30h às 15:00h</p>
-    <h3 class="waitTime">Tempo de espera</h3>
+    <h3 class="infoH3">Horários</h3>
+    <p>10:00h às 15:00h</p>
+    <p>18:00h às 23:00h</p>
+    <h3 class="infoH3">Tempo de espera</h3>
     <p>Entre 60-90min</p>
     <p class="greenColor freeShipping">🛵 Entrega grátis! 🛵</p>
   </section>
@@ -22,10 +24,12 @@ export default {
       let timeNow = moment().format(format)
 
       let time = moment(timeNow, format),
-      beforeTime = moment('10:30:00', format),
-      afterTime = moment('15:00:00', format);
+      beforeTime1 = moment('10:00:00', format),
+      afterTime1 = moment('15:00:00', format),
+      beforeTime2 = moment('18:00:00', format),
+      afterTime2 = moment('23:00:00', format);
 
-      let open = time.isBetween(beforeTime, afterTime)
+      let open = time.isBetween(beforeTime1, afterTime1) || time.isBetween(beforeTime2, afterTime2)
 
       this.$emit('storeStatus', open)
       return { open, text: open ? 'Aberto!' : 'Fechado!' }
@@ -72,7 +76,7 @@ export default {
     text-transform: uppercase;
   }
   
-  .waitTime {
+  .infoH3 {
     margin-top: 10px;
   }
 
