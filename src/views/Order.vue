@@ -108,9 +108,7 @@
       <p>Nenhum item no carrinho</p>
     </div>
 
-    <router-link to="/">
-    <p class="backLink">Voltar</p>
-    </router-link>
+    <router-link to="/" class="backLink">Voltar</router-link>
   </div>
 </template>
 

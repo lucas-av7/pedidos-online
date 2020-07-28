@@ -11,9 +11,9 @@
           <p>{{ product.amount }}x {{ product.name }}</p>
           <p>{{ product.amount * product.price | realMask }}</p>
         </div>
-        <router-link v-if="storeStatus" :to="{ name: 'Order', params: { order } }">
-          <button class="sendOrder" @click="showCart = false">Solicitar pedido</button>
-        </router-link>
+        <router-link v-if="storeStatus" :to="{ name: 'Order', params: { order } }"
+          tag="button" class="sendOrder" @click="showCart = false">
+          Solicitar pedido</router-link>
         <p v-else>Loja fechada!</p>
         <p class="emptyCart" @click="$emit('emptyCart'), showCart = false">Esvaziar carrinho</p>
       </div>
